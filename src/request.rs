@@ -9,7 +9,7 @@ use structures::structs::{DefaultTypes, Env, Table};
 pub fn get(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
     let d = v.remove(0);
     if let DefaultTypes::Str(url) = d {
-        let resp = blocking::get(url).expect("Error sending request");
+        let resp = blocking::get(format!("https://{}", url)).expect("Error sending request");
         let mut t = Table::new();
         t.set(
             "status".parse().unwrap(),
@@ -27,6 +27,6 @@ pub fn get(_: &mut Env, mut v: Vec<DefaultTypes>) -> Vec<DefaultTypes> {
 
 pub fn load() -> Lib {
     let mut s = Lib::new("request");
-    s.add("get", get.as_obj());
+    s.add("getreq", get.as_obj());
     s
 }
