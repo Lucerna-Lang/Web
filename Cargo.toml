@@ -6,4 +6,12 @@ edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
+[dependencies.structures]
+git = "https://github.com/Lucerna-Lang/Structures"
+
+[dependencies.liber]
+git = "https://github.com/Lucerna-Lang/Liber"
+
+[dependencies.reqwest]
+version = "0.11.3"
+features = ["blocking"]
